@@ -78,6 +78,8 @@ public:
             }
         }
 
+
+
         while (start->data != 'B')
         {
             start = start->next;
@@ -347,6 +349,8 @@ public:
             }
         }
 
+        displayForward();
+
         while (1)
         {
 
@@ -423,6 +427,8 @@ public:
                 break;
             }
         }
+
+        displayForward();
 
         while (1)
         {
@@ -1240,8 +1246,17 @@ int main()
                 }
                 list.penjumlahanPositifDiff();
             }
-            else if (num2 == 1 && num1 == 1)
+            else if (num2 == num1)
             {
+                for (int i = 0; i < num1 - 1; i++)
+                {
+                    list.insertX('X');
+                }
+
+                for (int i = 0; i < num2 - 1; i++)
+                {
+                    list.insertY('Y');
+                }
                 list.penjumlahanNegatifDiff();
             }
         }
@@ -1276,10 +1291,9 @@ int main()
             // cout << num1 << endl;
             // cout << num2 << endl;
 
-            list.displayForward();
-
             if (num1 > num2 && num2 > 0)
             {
+                list.displayForward();
 
                 for (int i = 0; i < num1 - 1; i++)
                 {
@@ -1305,8 +1319,16 @@ int main()
 
                 list.penjumlahanYXPositif();
             }
-            else if (num1 == 1 && num2 == 1)
+            else if (num1 == num2)
             {
+                for (int i = 0; i < num1 - 1; i++)
+                {
+                    list.insertXNegatif('Y');
+                }
+                for (int i = 0; i < num2 -1; i++)
+                {
+                    list.insertYPositif('X');
+                }
                 list.penjumlahanYXPositif();
             }
             else if (num1 > 0 && num2 == 0)
@@ -1333,7 +1355,6 @@ int main()
             {
                 list.insertX('X');
             }
-            list.displayForward();
             for (int i = 0; i < num2 - 1; i++)
             {
                 list.insertYPositif('X');
@@ -1341,24 +1362,6 @@ int main()
             list.penjumlahanPositif();
         }
 
-        if (input1[0] != '-' && input2[0] == '-')
-        {
-
-            num1 = stoi(input1);
-            num2 = stoi(input2);
-            
-            
-            for (int i = 0; i < num1 - 1; i++)
-            {
-                list.insertX('X');
-            }
-            list.displayForward();
-            for (int i = 0; i < num2 - 1; i++)
-            {
-                list.insertYPositif('X');
-            }
-            list.penjumlahanPositif();
-        }
 
         if (input1[0] == '-' && input2[0] == '-')
         {
@@ -1375,7 +1378,6 @@ int main()
             {
                 list.insertXNegatif('Y');
             }
-            list.displayForward();
             for (int i = 0; i < num2 - 1; i++)
             {
                 list.insertY('Y');
@@ -1391,11 +1393,6 @@ int main()
 
         cout << "Input Num 2: \n$ ";
         cin >> input2;
-
-        if (input2[0] == '-' && input1[0] != '-')
-        {
-            /* code */
-        }
     
 
         if (input2[0] != '-' && input1[0] != '-')
@@ -1465,7 +1462,7 @@ int main()
                 list.displayForward();
                 list.penguranganPositifDiff();
             }
-            else if (num2 == 1 && num1 == 1)
+            else if (num2 == num1)
             {
                 list.penguranganNegatifDiff();
             }
@@ -1531,8 +1528,18 @@ int main()
                 list.displayForward();
                 list.penguranganNegatif();
             }
-            else if (num1 == 1 && num2 == 1)
+            else if (num1 == num2)
             {
+                for (int i = 0; i < num1 - 1; i++)
+                {
+                    list.insertXNegatif('Y');
+                }
+
+                for (int i = 0; i < num2 + 1; i++)
+                {
+                    list.insertYPositif('Y');
+                }
+                
                 list.penguranganYXPositif();
             }
             else if (num1 > 0 && num2 == 0)
@@ -1636,7 +1643,6 @@ int main()
                 {
                     list.insertYPositif('X');
                 }
-                list.displayForward();
                 list.penguranganYXNegatif();
             }else if (num1 < num2 && num1 > 0)
             {
@@ -1650,7 +1656,6 @@ int main()
                 {
                     list.insertYPositif('X');
                 }
-                list.displayForward();
                 list.penguranganYXPositif();
             }else if (num1 > num2 && num2 == 0)
             {
@@ -1664,7 +1669,6 @@ int main()
                 {
                     list.replaceNodeValueX();
                 }
-                list.displayForward();
                 list.penguranganYXNegatif();
             }else if (num1 == num2)
             {
@@ -1678,7 +1682,6 @@ int main()
                 {
                     list.insertY('Y');
                 }
-                list.displayForward();
                 list.penjumlahanNegatif();
             }
 
